@@ -12,9 +12,9 @@ addpath('MFDsolver/','Assignment/','UserNetworks/','PostProc/','Route/','Converg
 %--------------------------------------------------------------------------
 
 % Choice of a network defined by user
-Simulation.Network = 'City_2res';
+Simulation.Network = 'Braess_2modes';
 % Simulation name
-Simulation.Name = 'SC11';
+Simulation.Name = 'SC61';
 
 
 %% Simulation initialization
@@ -32,9 +32,9 @@ Assignment.CurrentPeriodID = 1;
 Assignment.CurrentTime = Assignment.Periods(Assignment.CurrentPeriodID);
 Assignment.CurIteration = 1;
 
-RouteCalc
+RouteCalc2
 
-AssignCalc
+AssignCalc2
 
 rmpath(['UserNetworks/' Simulation.Network '/'])
 

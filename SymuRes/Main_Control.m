@@ -51,7 +51,9 @@ try
         disp '----------------------------------------------------------'
         
         % Control action update
-        ControlCalc
+        if isfield(Simulation,'Control')
+            ControlCalc
+        end
         
         % Convergence parameters
         Assignment.HasConverged = 0;

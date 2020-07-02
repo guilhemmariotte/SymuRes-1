@@ -30,11 +30,11 @@ addpath('MFDsolver/','Assignment/','UserNetworks/','PostProc/','Route/','Converg
 % % ScenarioList = {'SC35','SC45','SC55'};
 
 % TWORES: two reservoirs with two trips
-Network = 'TwoRes';
-NameSuffix = '';
-SolverList = [1 2];
-ScenarioList = {'SC10','SC11','SC12','SC13','SC14','SC15','SC20','SC21','SC22','SC23','SC24','SC25',...
-    'SC30','SC31','SC32','SC33','SC34','SC35','SC40','SC41','SC42','SC43','SC44','SC45'};
+% Network = 'TwoRes';
+% NameSuffix = '';
+% SolverList = [1 2];
+% ScenarioList = {'SC10','SC11','SC12','SC13','SC14','SC15','SC20','SC21','SC22','SC23','SC24','SC25',...
+%     'SC30','SC31','SC32','SC33','SC34','SC35','SC40','SC41','SC42','SC43','SC44','SC45'};
 
 % TWORES: two reservoirs with two trips, single exit
 % Network = 'TwoRes';
@@ -47,10 +47,20 @@ ScenarioList = {'SC10','SC11','SC12','SC13','SC14','SC15','SC20','SC21','SC22','
 
 % BRAESS: Braess network
 % Network = 'Braess';
-% NameSuffix = '_1';
+% NameSuffix = '_2';
 % SolverList = [1 2];
 % % ScenarioList = {'SC11','SC12','SC13','SC21','SC31','SC41','SC51','SC61'};
-% ScenarioList = {'SC11','SC12','SC13','SC21'};
+% % ScenarioList = {'SC11','SC12','SC13','SC14','SC21'};
+% ScenarioList = {'SC11','SC31'};
+
+
+% BRAESS: Braess network
+Network = 'Braess_2modes';
+NameSuffix = '';
+SolverList = [1 2];
+% ScenarioList = {'SC11','SC12','SC13','SC21','SC31','SC41','SC51','SC61'};
+% ScenarioList = {'SC11','SC12','SC13','SC14','SC21'};
+ScenarioList = {'SC11','SC21','SC31'};
 
 
 % SINGLERESSYMUVIA: Single reservoir comparison with Symuvia
@@ -78,6 +88,14 @@ ScenarioList = {'SC10','SC11','SC12','SC13','SC14','SC15','SC20','SC21','SC22','
 % % ScenarioList = {'SC41','SC51'};
 
 
+% GRID_25RES: Grid 9 res
+% Network = 'Grid_25res';
+% NameSuffix = '';
+% SolverList = [1];
+% % ScenarioList = {'SC11','SC21','SC31','SC41','SC51'};
+% ScenarioList = {'SC31'};
+
+
 
 for isolver = 1:length(SolverList)
     for iscenario = 1:length(ScenarioList)
@@ -93,11 +111,8 @@ for isolver = 1:length(SolverList)
         Simulation.Name = [ScenarioList{iscenario} NameSuffix];
         
         % Run the simulation
-        if isfield(Simulation,'Control')
-            Main_Control
-        else
-            Main_DTA
-        end
+        Main_Control2
+        %Main_DTA
         
     end
 end
