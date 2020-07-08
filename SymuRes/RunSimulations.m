@@ -111,7 +111,7 @@ for isolver = 1:length(SolverList)
         Simulation.Name = [ScenarioList{iscenario} NameSuffix];
         
         % Run the simulation
-        Main_Control2
+        Main_Control
         %Main_DTA
         
     end
